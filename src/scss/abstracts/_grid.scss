@@ -1,0 +1,49 @@
+//
+// This function makes a 12 column grid by making ".col-" classes
+// Feel free to change the columns value if you would prefer for example an 8 column system
+//
+// Use case example:You want a row with 1 column spanning 6 columns and the rest take one column:
+// The first element would get .col-6 and the rest .col-1
+//
+// The offset class works a little different. It pushes the element x-many colums away from the start
+// For example a .col-offset-6 class would start on the sixth column of the grid
+//
+
+$columns: 12;
+
+@for $i from 1 through $columns {
+  .col-#{$i} {
+    flex: 0 0 (100% / ($columns / $i));
+  }
+
+  .col-offset-#{$i} {
+    margin-left: 100% / (($columns / $i));
+  }
+}
+
+//
+// This is a wrapper class that you would use to make a row of columns
+//
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+//
+// EXAMPLE USE CASE
+//
+// <div class="row">
+//   <div class="col-6">Six columns</div>
+//   <div class="col-1">One column</div>
+//   <div class="col-1">One column</div>
+//   <div class="col-1">One column</div>
+//   <div class="col-1">One column</div>
+//   <div class="col-1">One column</div>
+//   <div class="col-1">One column</div>
+//  </div>
+//
+//  <div class="row">
+//   <div class="col-offset-6">I start at the sixth column</div>
+//  </div>
+//

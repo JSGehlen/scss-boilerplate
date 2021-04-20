@@ -1,0 +1,34 @@
+//
+// This is a mixin for using your breakpoints
+//
+
+@use 'sass:map';
+@use '../abstracts/breakpoints' as *;
+
+@mixin mq($key) {
+  $size: map-get($breakpoints, $key);
+
+  @media only screen and (min-width: $size) {
+    @content;
+  }
+}
+
+@mixin before($content: "", $pos: absolute) {
+  position: relative;
+
+  &::before {
+    content: $content;
+    position: $pos;
+    @content;
+  }
+}
+
+@mixin after($content: "", $pos: absolute) {
+  position: relative;
+
+  &::after {
+    content: $content;
+    position: $pos;
+    @content;
+  }
+}

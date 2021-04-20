@@ -1,0 +1,39 @@
+@use '../abstracts/' as *;
+
+:root {
+  //
+  // This function makes custom css-variables for every color by adding "--clr-" to the beginning and then adding the color name and shade
+  // For example --clr-primary-500
+  //
+
+  @each $color, $shades in $colors {
+    @each $shade, $value in $shades {
+      --clr-#{$color}-#{$shade}: #{$value};
+    }
+  }
+
+  //
+  // This function makes custom css-variables for every font-size by adding "--fs-" to the beginning,
+  // and then adding the font-size-name from the type-scale.scss
+  // For example --fs-500
+  //
+  // Note that the value of the css-variable will change based on the screen
+  // Note that also there are only two scales, even though there are three breakpoints.
+  // This is because you very rarerly need three scales unless you want one for really large screens
+  //
+  // IMPORTANT: If you want to change the values themself, change them in the type-scale.scss file. Not here!
+
+  @each $screen-size, $font-size in $type-scale {
+    @if $screen-size == small {
+      @each $size, $value in $font-size {
+        --fs-#{$size}: #{$value};
+      }
+    } @else {
+      @include mq(medium) {
+        @each $size, $value in $font-size {
+          --fs-#{$size}: #{$value};
+        }
+      }
+    }
+  }
+}

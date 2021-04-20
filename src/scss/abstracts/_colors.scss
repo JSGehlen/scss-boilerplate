@@ -1,0 +1,109 @@
+// Change colors and category names to your liking!
+//
+// 1. The color system is made by using HSL (Hue, Saturation, Lightness)
+// 2. To change the color itself, change the h-value (first value)
+// 3. To change the saturation of the color, change the s-value (second value)
+// 4. To change the lightness, change the l-value (third value)
+//
+// PRO TIP: Work with 500 first. Once you have a good color, copy the hsl values to each number (100-700).
+// Then change the lightness value by 10% each
+//
+
+$colors: (
+  primary: (
+    100: hsl(207, 65%, 80%),
+    200: hsl(207, 65%, 70%),
+    300: hsl(207, 65%, 60%),
+    400: hsl(207, 65%, 50%),
+    500: hsl(207, 65%, 40%),
+    600: hsl(207, 65%, 30%),
+    700: hsl(207, 65%, 20%),
+  ),
+  secondary: (
+    100: hsl(144, 65%, 80%),
+    200: hsl(146, 65%, 70%),
+    300: hsl(146, 65%, 60%),
+    400: hsl(146, 65%, 50%),
+    500: hsl(146, 65%, 40%),
+    600: hsl(146, 65%, 30%),
+    700: hsl(156, 65%, 20%),
+  ),
+  tertiary: (
+    100: hsl(174, 65%, 80%),
+    200: hsl(174, 65%, 70%),
+    300: hsl(174, 65%, 60%),
+    400: hsl(174, 65%, 50%),
+    500: hsl(174, 65%, 40%),
+    600: hsl(174, 65%, 30%),
+    700: hsl(174, 65%, 20%),
+  ),
+  error: (
+    100: hsl(0, 65%, 80%),
+    200: hsl(0, 65%, 70%),
+    300: hsl(0, 65%, 60%),
+    400: hsl(0, 65%, 50%),
+    500: hsl(0, 65%, 40%),
+    600: hsl(0, 65%, 30%),
+    700: hsl(0, 65%, 20%),
+  ),
+  warning: (
+    100: hsl(44, 65%, 80%),
+    200: hsl(44, 65%, 70%),
+    300: hsl(44, 65%, 60%),
+    400: hsl(44, 65%, 50%),
+    500: hsl(44, 65%, 40%),
+    600: hsl(44, 65%, 30%),
+    700: hsl(44, 65%, 20%),
+  ),
+  neutral: (
+    100: hsl(206, 10%, 80%),
+    200: hsl(206, 10%, 70%),
+    300: hsl(206, 10%, 60%),
+    400: hsl(206, 10%, 50%),
+    500: hsl(206, 10%, 40%),
+    600: hsl(206, 10%, 30%),
+    700: hsl(206, 10%, 20%),
+  ),
+);
+
+//////////////////////////
+// Color classes start here
+// /////////////////////////
+
+//
+// Background colors
+//
+
+//
+// This function makes custom classes for every color by adding ".bg-" to the beginning and then adding the color name and shade
+// For example .bg-primary-500
+//
+
+@each $color, $shades in $colors {
+  @each $shade, $value in $shades {
+    .bg-#{$color}-#{$shade} {
+      color: $value;
+    }
+  }
+}
+
+//
+// Text colors
+//
+
+//
+// This function makes custom classes for every color by adding ".text-" to the beginning and then adding the color name and shade
+// For example .text-primary-500
+//
+
+@each $color, $shades in $colors {
+  @each $shade, $value in $shades {
+    .text-#{$color}-#{$shade} {
+      color: $value;
+    }
+  }
+}
+
+///////////////////////////
+// Color classes end here
+///////////////////////////
