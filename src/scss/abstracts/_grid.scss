@@ -1,4 +1,3 @@
-//
 // This function makes a 12 column grid by making ".col-" classes
 // Feel free to change the columns value if you would prefer for example an 8 column system
 //
@@ -21,29 +20,8 @@ $columns: 12;
   }
 }
 
-//
 // This is a wrapper class that you would use to make a row of columns
-//
-
 .row {
   display: flex;
   flex-wrap: wrap;
 }
-
-//
-// EXAMPLE USE CASE
-//
-// <div class="row">
-//   <div class="col-6">Six columns</div>
-//   <div class="col-1">One column</div>
-//   <div class="col-1">One column</div>
-//   <div class="col-1">One column</div>
-//   <div class="col-1">One column</div>
-//   <div class="col-1">One column</div>
-//   <div class="col-1">One column</div>
-//  </div>
-//
-//  <div class="row">
-//   <div class="col-offset-6">I start at the sixth column</div>
-//  </div>
-//

@@ -1,10 +1,7 @@
-//
-// This is a mixin for using your breakpoints
-//
-
 @use 'sass:map';
 @use '../abstracts/breakpoints' as *;
 
+// Mixin for using your breakpoints
 @mixin mq($key) {
   $size: map-get($breakpoints, $key);
 
@@ -13,48 +10,7 @@
   }
 }
 
-@mixin box($width, $height: $width) {
-  width: $width;
-  height: $height;
-}
-
-//
-// EXAMPLE USE CASE
-//
-// div {
-//   // You can pass width && height
-//   @include box(200px, 300px);
-//   /* or just pass width and the height
-//      will default to the width value */
-//   @include box(200px);
-// }
-
-@mixin pseudo(
-  $width: 100%,
-  $height: 100%,
-  $display: inline-block,
-  $pos: absolute,
-  $content: ""
-) {
-  content: $content;
-  display: $display;
-  position: $pos;
-  @include box($width, $height);
-}
-
-//
-// EXAMPLE USE CASE
-//
-// div {
-//   position: relative;
-//   width: 200px;
-//   height: 200px;
-
-//   &:after {
-//     @include pseudo(100px, 100px);
-//   }
-// }
-
+// Mixins for creating device-based styles
 @mixin tablet {
   @media only screen and (min-width: $tablet * 1px) {
     @content;
@@ -73,6 +29,27 @@
   }
 }
 
+// Mixin for shorter box-sizing
+@mixin box($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+// Mixin for pseudo elements
+@mixin pseudo(
+  $width: 100%,
+  $height: 100%,
+  $display: inline-block,
+  $pos: absolute,
+  $content: ""
+) {
+  content: $content;
+  display: $display;
+  position: $pos;
+  @include box($width, $height);
+}
+
+// Mixins for different flex use cases
 @mixin flex-column {
   display: flex;
   flex-direction: column;
@@ -99,15 +76,44 @@
   justify-content: center;
 }
 
-//
-// EXAMPLE USE CASE
-//
+// Mixin for creating reusable a box-radius
+@mixin radius($radius) {
+  border-radius: $radius * 1px;
+}
 
-// .vertical-centered-element {
-//   @include flex-center-vert;
-// }
+// Mixin for paddings
+@mixin padding($top, $right, $bottom, $left) {
+  padding-top: $top * 1px;
+  padding-right: $right * 1px;
+  padding-bottom: $bottom * 1px;
+  padding-left: $left * 1px;
+}
 
-// .horizontally-centered-element {
-//   flex-direction: column;
-//   @include flex-center-vert;
-// }
+// Mixin for margins
+@mixin margin($top, $right, $bottom, $left) {
+  margin-top: $top * 1px;
+  margin-right: $right * 1px;
+  margin-bottom: $bottom * 1px;
+  margin-left: $left * 1px;
+}
+
+// Mixin for creating a gradient-background
+@mixin background-gradient($start-color, $end-color, $orientation) {
+  background: $start-color;
+
+  @if $orientation == "vertical" {
+    background: -webkit-linear-gradient(top, $start-color, $end-color);
+    background: linear-gradient(to bottom, $start-color, $end-color);
+  } @else if $orientation == "horizontal" {
+    background: -webkit-linear-gradient(left, $start-color, $end-color);
+    background: linear-gradient(to right, $start-color, $end-color);
+  } @else {
+    background: -webkit-radial-gradient(
+      center,
+      ellipse cover,
+      $start-color,
+      $end-color
+    );
+    background: radial-gradient(ellipse at center, $start-color, $end-color);
+  }
+}

@@ -1,11 +1,16 @@
 @use 'abstracts/font-family' as *;
 @use 'abstracts/colors' as *;
-html {font-size: 100%;} /*16px*/
+
+// These are example base styles that can be overwritten to your choosing
+
+html {
+  font-size: 100%;
+} /*16px*/
 
 body {
   background: white;
   font-family: $font-family;
   font-weight: 400;
   line-height: 1.75;
-  color: var(--clr-neutral-700)
+  color: var(--clr-neutral-700);
 }

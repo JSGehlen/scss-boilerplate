@@ -1,9 +1,12 @@
+@use 'abstracts/mixins' as *;
+@use 'abstracts/colors' as *;
+
 //
 // This is an example utility class
 //
 
 .container {
-  padding: 0 1.5rem;
-  max-width: 62.5rem;
-  margin: 0 auto;
+  height: 100vh;
+  width: 100%;
+  @include flex-center;
 }

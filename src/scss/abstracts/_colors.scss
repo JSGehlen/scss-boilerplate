@@ -70,14 +70,10 @@ $colors: (
 // Color classes start here
 // /////////////////////////
 
-//
 // Background colors
-//
 
-//
 // This function makes custom classes for every color by adding ".bg-" to the beginning and then adding the color name and shade
 // For example .bg-primary-500
-//
 
 @each $color, $shades in $colors {
   @each $shade, $value in $shades {
@@ -87,14 +83,10 @@ $colors: (
   }
 }
 
-//
 // Text colors
-//
 
-//
 // This function makes custom classes for every color by adding ".text-" to the beginning and then adding the color name and shade
 // For example .text-primary-500
-//
 
 @each $color, $shades in $colors {
   @each $shade, $value in $shades {

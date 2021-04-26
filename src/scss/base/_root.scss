@@ -1,10 +1,8 @@
 @use '../abstracts/' as *;
 
 :root {
-  //
   // This function makes custom css-variables for every color by adding "--clr-" to the beginning and then adding the color name and shade
   // For example --clr-primary-500
-  //
 
   @each $color, $shades in $colors {
     @each $shade, $value in $shades {
@@ -12,7 +10,6 @@
     }
   }
 
-  //
   // This function makes custom css-variables for every font-size by adding "--fs-" to the beginning,
   // and then adding the font-size-name from the type-scale.scss
   // For example --fs-500
